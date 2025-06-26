@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netflix clone http://localhost:5500/index.html</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .main {
+            background-image: url("https://i.postimg.cc/Xqj8wvhB/Screenshot-2025-06-23-205443.png");
+            height: 70vh;
+            position: relative;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: max(1200px, 100vw);
+
+        }
+
+        .main .box {
+            width: 100%;
+            height: 70vh;
+            opacity: 0.44;
+            background-color: black;
+            position: absolute;
+            top: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 60vw;
+            margin: auto;
+            height: 100px;
+            /* Adjusted height for better alignment */
+        }
+
+        nav img {
+            color: red;
+            width: 144px;
+            position: relative;
+            z-index: 10;
+        }
+
+        nav button {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero {
+            font-family: 'Martel Sans', sans-serif;
+            height: calc(100%-62px);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            position: relative;
+            gap: 23px;
+            padding: 150px;
+            z-index: 10;
+
+        }
+
+        .title {
+            font-weight: bolder;
+            font-size: 48px;
+            text-align: center;
+
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .note {
+            font-size: 20px;
+            font-weight: 400;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .saperator {
+            background-color: rgb(59, 57, 57);
+            height: 7px;
+        }
+
+        .buttons {
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .buttons input {
+            margin-right: 10px;
+            padding: 3px 24px;
+            font-size: 20px;
+            border-radius: 4px;
+            background-color: rgba(23, 23, 23, 0.7);
+        }
+
+        .btn {
+            padding: 3px 8px;
+            color: white;
+            font-weight: bold;
+            background-color: rgba(23, 23, 23, 0.5);
+        }
+
+        .buttons .btn-red {
+            background-color: red;
+            color: white;
+            padding: 3px 24px;
+            font-size: 20px;
+            border-radius: 4px;
+            font-weight: 400;
+        }
+
+        .btn-red-sm {
+            background-color: red;
+            color: white;
+            border-radius: 4px;
+
+        }
+
+        .first :first-child {
+            margin: 15px;
+            font-size: 30px;
+            padding: 10px;
+        }
+
+        .first img {
+            border-radius: 15px;
+        }
+
+        .flex {
+            display: flex;
+            border-radius: 15px;
+            align-items: center;
+
+        }
+
+        .logo {
+            display: flex;
+            border-radius: 15px;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .logo1 {
+            width: 250px;
+            height: 300px;
+            margin-right: 10px;
+            background: linear-gradient(to bottom right, #333358, #4e1063);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            color: white;
+
+        }
+
+        .logo2 {
+            width: 250px;
+            height: 320px;
+            background-color: white;
+            margin-right: 10px;
+            margin-left: 10px;
+            background: linear-gradient(to bottom right, #333358, #4e1063);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo3 {
+            width: 250px;
+            height: 320px;
+            background-color: white;
+            margin-right: 10px;
+            margin-left: 10px;
+            background: linear-gradient(to bottom right, #333358, #4e1063);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo4 {
+            width: 250px;
+            height: 320px;
+            background-color: rgb(62, 131, 209);
+            margin-right: 10px;
+            margin-left: 10px;
+            background: linear-gradient(to bottom right, #333358, #4e1063);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo1 p {
+            font-size: 20px;
+            color: #b3b3b3;
+        }
+
+        .logo1 img {
+            margin-left: 160px;
+            margin-top: 30px;
+        }
+
+        .logo1 h3 {
+            margin-right: 20px;
+            font-size: 25px;
+        }
+
+        .logo2 p {
+            font-size: 20px;
+            color: #b3b3b3;
+        }
+
+        .logo2 h3 {
+            margin-right: 20px;
+            font-size: 25px;
+            color: white;
+        }
+
+        .logo2 img {
+            margin-left: 160px;
+            margin-top: 30px;
+        }
+
+        .logo3 p {
+            font-size: 20px;
+            color: #b3b3b3;
+        }
+
+        .logo3 h3 {
+            margin-right: 20px;
+            font-size: 25px;
+            color: white;
+        }
+
+        .logo3 img {
+            margin-left: 160px;
+            margin-top: 55px;
+        }
+
+        .logo4 p {
+            font-size: 20px;
+            color: #b3b3b3;
+        }
+
+        .logo4 h3 {
+            margin-right: 20px;
+            font-size: 25px;
+            color: white;
+        }
+
+        .logo4 img {
+            margin-left: 160px;
+            margin-top: 40px;
+        }
+
+        .faqbox {
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .faq-title {
+            color: white;
+            font-size: 30px;
+            padding: 10px;
+        }
+        .faq1 h3 {
+            color: white;
+            margin-left: 40px
+            
+        }
+        .faq1 {
+            height: 90px;
+            width: 1000px;
+            background-color: rgb(59, 57, 57);
+            margin-left: 170px;
+        }
+        .faq-title1 {
+            padding: 30px;
+            display: flex;
+        }
+        .faq2 h3 {
+            color: white;
+            margin-left: 40px
+        }
+        .faq2 {
+            height: 80px;
+            width: 1000px;
+            background-color: rgb(59, 57, 57);
+            margin-left: 170px;
+            margin-top: 10px;
+        }
+        .faq-title2 {
+            padding: 30px;
+            display: flex;
+        }
+        .faq3 h3 {
+            color: white;
+            margin-left: 40px
+        }
+        .faq3 {
+            height: 80px;
+            width: 1000px;
+            background-color: rgb(59, 57, 57);
+            margin-left: 170px;
+            margin-top: 10px;
+        }
+        .faq-title3 {
+            padding: 30px;
+            display: flex;
+        }
+        .faq4 h3 {
+            color: white;
+            margin-left: 40px
+        }
+        .faq4 {
+            height: 80px;
+            width: 1000px;
+            background-color: rgb(59, 57, 57);
+            margin-left: 170px;
+            margin-top: 10px;
+        }
+        .faq-title4 {
+            padding: 30px;
+            display: flex;
+        }
+        .faq5 h3 {
+            color: white;
+            margin-left: 40px
+        }
+        .faq5 {
+            height: 80px;
+            width: 1000px;
+            background-color: rgb(59, 57, 57);
+            margin-left: 170px;
+            margin-top: 10px;
+        }
+        .faq-title5 {
+            padding: 30px;
+            display: flex;
+        }
+        .faq6 h3 {
+            color: white;
+            margin-left: 40px
+        }
+        .faq6 {
+            height: 80px;
+            width: 1000px;
+            background-color: rgb(59, 57, 57);
+            margin-left: 170px;
+            margin-top: 10px;
+        }
+        .faq-title6 {
+            padding: 30px;
+            display: flex;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <nav>
+            <span><img width="53" src="assets/images/logo.svg" alt="Netflix Logo"></span>
+            <div>
+                <button class="btn">English</button>
+                <button class="btn btn-red-sm">Sign In</button>
+
+            </div>
+        </nav>
+        <div class="hero">
+            <span class="title">Unlimited movies, TV shows and more</span>
+            <span class="subtitle">Starts at ₹149. Cancel at any time.</span>
+            <span class="note">Ready to watch? Enter your email...</span>
+            <div class="buttons">
+                <input type="text" placeholder="Email address">
+                <button class="btn btn-red">Get Started &gt;</button>
+            </div>
+
+
+        </div>
+
+
+        <div class="box"></div>
+
+    </div>
+    <div class="saperator"></div>
+
+    <section class="first">
+        <div style="color: white;">
+            Trending Now
+        </div>
+        <div class="flex">
+            <div>
+                <img src="https://occ-0-3647-3646.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABUhpdEpzHYfnPnHNbojySI_GMO9oaeZoaj-1hsW_orVNftH6TbH0sOBM4T-iixC82-cNn58AH3wyfEPPPIqeQ12zNja6KT3C9ojoXJLeQRs61XhQQYMxg0uicDwrwJITVsfC.webp?r=27c"
+                    alt="Trending Now Image" width="200px" height="300px">
+            </div>
+            <div>
+                <img src="https://occ-0-3647-3646.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYUCgDPIk4LvnEw_j-dC5ca65oxm4yP2Z7RFKlRcN6WYzCwNA4MhTNqTRrSAK9zND3cSjrYEpbQculmTCXPD09ZbvdCosdbuOjc.webp?r=062"
+                    alt="Trending Now Image" width="200px" height="300px">
+            </div>
+            <div>
+
+                <img src="https://occ-0-3647-3646.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYGL4_ns5MGTE5-Yd3ZQVB5apyY9yxQ39lxjT_27ehdoGzrxRwNc4osgXEeifcv9yO_MgMySL-p6hMxtQZnIEkZmyglIJ7wm7ik.webp?r=c23"
+                    alt="Trending Now Image" width="200px" height="300px">
+            </div>
+            <div>
+                <img src="https://occ-0-3647-3646.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABTsIHqmKvuiJaunFg-3M7eRlEBPik8Un-eqTK-od9x48LzeGITagPm82bIopTRvyhIEMehQNdXN2qfj0AVpDTMhftqYStaCieJdbO-jfhSkFUVGBs9eYkpkjdzOj_UCKZi53.webp?r=06c"
+                    alt="Trending Now Image" width="200px" height="300px">
+            </div>
+            <div>
+                <img src="https://occ-0-3647-3646.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZ2Btia34ViHOdbGThR2xD0XYVD9vkdTkUULeET8PcHeq12ebMOJyLaTD1yS26NaRfUqDMknk2XnomOCg78WEKeN3VEDdOKzFRayBGveEZ-MeOaVD-v0z5P25idICKgt-nXX.webp?r=a1c"
+                    alt="Trending Now Image" width="200px" height="300px">
+            </div>
+            <div>
+                <img src="https://occ-0-3647-3646.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYVcRfFB91jy3f8-_Alb6H4RUzqXFRA7ejjOfCOXF20XLRVeCyT3ZFEimKbZAimt2ayVUWXSnp6ApNxpoK0mA3XzJD__irrDkdMD6lDrOFPSvQqP8s0xn2dNBaU9JxIu4lUd.webp?r=63b"
+                    alt="Trending Now Image" width="200px" height="300px">
+            </div>
+
+        </div>
+
+    </section>
+    <section class="first">
+        <div style="color: white;">
+            More reasons to join
+        </div>
+
+        <div class="logo">
+            <div class="logo1">
+                <h3>Enjoy on your TV</h3>
+                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                <img src="https://www.svgrepo.com/show/478196/tv-material-2.svg" alt="tv" width="100px" height="70px">
+            </div>
+            <div class="logo2">
+                <h3>Download your shows to watch offline</h3>
+                <p>Save your favourites easily and always have something to watch.</p>
+                <img src="https://www.svgrepo.com/show/485511/download-circle.svg" alt="tv" width="100px" height="70px">
+            </div>
+            <div class="logo3">
+                <h3>Watch everywhere</h3>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+                <img src="https://www.svgrepo.com/show/266209/telescope-space.svg" alt="tv" width="100px" height="70px">
+            </div>
+            <div class="logo4">
+                <h3>Create profiles for kids</h3>
+                <p>Send kids on adventures with their favourite characters in a space made just for them — free with
+                    your membership.</p>
+                <img src="https://www.svgrepo.com/show/166578/two-smiling-pumpkins.svg" alt="smiling faces"
+                    width="100px" height="70px">
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="faqbox">
+        <div class="faq-title">
+            Frequently Asked Questions
+        </div>
+        </section>
+        <section>
+        <div class="faq1">
+            <div class="faq-title1">
+                <h3>What is Netflix?</h3>
+                <span style="font-size: 30px; margin-left: 700px;">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+            </div>
+        </div>
+        <div class="faq2">
+            <div class="faq-title2">
+                <h3>How much does Netflix cost?</h3>
+                <span style="font-size: 30px; margin-left: 700px; margin-right: 40px;">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+            </div>
+        </div>
+        <div class="faq3">
+            <div class="faq-title3">
+                <h3>Where can I watch?</h3>
+                <span style="font-size: 30px; margin-left: 700px; margin-right: 40px;">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+            </div>
+        </div>
+        <div class="faq4">
+            <div class="faq-title4">
+                <h3>How do I cancel?</h3>
+                <span style="font-size: 30px; margin-left: 700px;">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+            </div>
+        </div>
+        <div class="faq5">
+            <div class="faq-title5">
+                <h3>What can I watch on netflix?</h3>
+                <span style="font-size: 30px; margin-left: 700px; margin-right: 40px;">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+            </div>
+        </div>
+        <div class="faq6">
+            <div class="faq-title6">
+                <h3>Is netfix good for kids?</h3>
+                <span style="font-size: 30px; margin-left: 700px; margin-right: 40px;">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+            </div>
+        </div>
+        </section>
+
+</body>
+
+</html>
